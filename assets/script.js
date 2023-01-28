@@ -2,20 +2,21 @@
 
 //Create a function for buiding the url
 function buidUrl() {
-    let initialUrl = "https://api.openweathermap.org/geo/1.0/direct?";
-    let keyParam = { apiKey: "3703dc0a87a12ecb40acb1b87b0e9d16" };
+    let initialUrl = "https://api.openweathermap.org/geo/1.0/direct?q=";
+    let apiKey = "3703dc0a87a12ecb40acb1b87b0e9d16";
     let q = $("#search-input").val().trim();
     console.log("---------------\nURL: " + initialUrl + "\n---------------");
-    // console.log(initialUrl + $param(keyParam));
-    // + q + "&limit=5&" + keyParam
-    fetch(initialUrl + q + "&limit=5&" + keyParam)
+
+    //https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=3703dc0a87a12ecb40acb1b87b0e9d16
+    fetch(initialUrl + q + "&limit=6&appid=" + apiKey)
         .then(response => response.json())
         .then(citiesFound => {
-            let city1 = citiesFound[0];
-            console.log(city1);
-            console.log(city1.lon);
+            console.log(citiesFound);
+            let city = citiesFound[0];
+            console.log(city.lat);
+            console.log(city.lon);
 
-            return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city1.lat}&lon=${city1.lon}&appid=3703dc0a87a12ecb40acb1b87b0e9d16`)
+            return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${apiKey}api`)
         })
 
         .then(response => response.json())
@@ -48,7 +49,7 @@ $("#search-button").on("click", function (event) {
     $.ajax({
         url: searchWeather,
         method: "GET"
-    }).then(updatePage);
+    }).then();
 });
 
 //  .on("click") function associated with the clear button
