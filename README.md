@@ -14,3 +14,15 @@ Satisfies all of the above acceptance criteria plus the following:
 Uses the OpenWeather API to retrieve weather data.
 
 Uses localStorage to store persistent data.
+
+##Credits
+Materials used to complete this repo:
+- https://www.geeksforgeeks.org/jquery-set-the-value-of-an-input-text-field/
+- https://stackoverflow.com/questions/39733125/how-to-get-button-value-in-jquery
+- https://www.w3schools.com/howto/howto_css_style_hr.asp
+- https://www.youtube.com/watch?v=WZNG8UomjSI
+- https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=3703dc0a87a12ecb40acb1b87b0e9d16
+- https://api.openweathermap.org/data/2.5/forecast?lat=51.4875167&lon=-0.1687007&appid=3703dc0a87a12ecb40acb1b87b0e9d16
+- https://api.jquery.com/appendTo/
+- https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+- https://stackoverflow.com/questions/10642671/increment-variable-by-more-than-1

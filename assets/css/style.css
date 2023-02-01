@@ -3,21 +3,16 @@ header{
     background-color: #19193d;
 }
 
-.city-details{
-    display: inline-flex;
-    font-weight: bold;
-}
-
+/* Aside styling */
 .pb-3 {
     display: flexbox;
     font-weight: bolder;
     align-items: center;
     justify-content: space-around;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-
 }
 
+/* form styling */
 .form-input {
     padding: 10px;
     margin-bottom: 15px;
@@ -26,8 +21,9 @@ header{
 
 };
 
+/* search button */
 #search-input{
-    
+    display: block;
  
 }
 
@@ -42,42 +38,15 @@ header{
     color: #f4f2f2;
   }
 
-#today{
-    border: solid 0.1px;
-    padding-left: 5px;
-    margin: 0;
-    background: #e1e1e1;
+  /* line in aside */
+hr {
+    border: solid thin;
+    width: 100%;
+    margin: 15px 0px;
+    padding: 0;
 }
 
-#forecast-range{
-    font-weight: bold;
-    margin-left: 0px;
-}
-
-img{
-    display: relative;
-    top: -3px;
-    align-self: center;
-    text-shadow: 2px 2px 4px black;
-}
-
-.card{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    padding: 5px 20px;
-    color: aliceblue;
-    background-color: rgb(31, 50, 63);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-#forecast{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px 3px 0px 3px;
-}
-
+/* search history button */
 .search-history{
     margin-bottom: 15px;
     padding: 5px;
@@ -89,9 +58,50 @@ img{
 
 }
 
-hr {
-    border: solid thin;
-    width: 100%;
-    margin: 15px 0px;
-    padding: 0;
+/* First date  section*/
+#today{
+    border: solid 0.1px;
+    padding-left: 5px;
+    margin: 0;
+    background: #e1e1e1;
 }
+
+ 
+.city-details{
+    display: inline-flex;
+    font-weight: bold;
+}
+
+img{
+    display: relative;
+    top: -3px;
+    align-self: center;
+    text-shadow: 2px 2px 4px black;
+}
+
+/* weather forecast heading */
+#forecast-range{
+    font-weight: bold;
+    margin-left: 0px;
+}
+
+/* weather forecast section */
+#forecast{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 3px 0px 3px;
+}
+
+/* weather forecast cards */
+.card{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 20px;
+    color: aliceblue;
+    background-color: rgb(31, 50, 63);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+

@@ -104,6 +104,13 @@ function clearSearch() {
     $todaysWeather.empty()      //Remove the appended elements from the first day section
     $forecasts.empty();         //Remove the appended elements from the forecast section
 
+    function handle() {
+        value = $(".search-history").text();
+    }
+
+    $(function () {
+        $(".search-history").click(handle);
+    });
 }
 
 // Click function for displaying the search results and history
@@ -125,6 +132,14 @@ $("button").on("click", function (event) {
         `<button type=submit class=search-history>${searchResults}</button>`        //Create button for search history
     )
 
+    function handle() {
+        value = $(".search-history").text();
+    }
+
+    $(function () {
+        $(".search-history").click(handle);
+    });
+
     // //To Check and show previous results in search-form div
     // if (localStorage.getItem("history") != null) {
     //   let historyTmp = localStorage.getItem("history");
@@ -142,30 +157,7 @@ $("button").on("click", function (event) {
 
 });
 
-function handle() {
-    value = $(".search-history").text();
-    // alert(value);
-    weatherSearch.buidUrl()
-}
-
-$(function () {
-    $(".search-history").click(handle);
 
 
 
-});
 
-
-$(".search-history").on("click", function (event) {
-
-    event.preventDefault;
-
-
-
-    $.ajax({
-        url: weatherSearch.buidUrl(),
-        method: "GET"
-    })
-    // $("#search-input").append(buttonValue)
-
-});
