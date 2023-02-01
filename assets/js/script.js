@@ -22,15 +22,16 @@
 let $todaysWeather = $("#today");       //Variable for the first day's section
 let $forecasts = $("#forecast");        //Variable for the 5-day forecast's section
 
+// Object for easier manipulation
 weatherSearch = {
-    apiKey: "3703dc0a87a12ecb40acb1b87b0e9d16",
 
-    // initialUrl: "https://api.openweathermap.org/geo/1.0/direct?q=",
+    apiKey: "3703dc0a87a12ecb40acb1b87b0e9d16",     //Variable for api key
 
-
+    // Function to get api data
     buidUrl: function () {
-        let $searchTerm = $("#search-input").val().trim();
-        //https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=3703dc0a87a12ecb40acb1b87b0e9d16
+        let $searchTerm = $("#search-input").val().trim();      //Variable to retrieve user input value
+
+        //Retrieve city information
         fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + $searchTerm + "&limit=5&appid=" + this.apiKey
         )
             .then(response => response.json())
@@ -38,11 +39,9 @@ weatherSearch = {
                 for (let i = 0; i < citiesFound.length; i++) {
                     const city = citiesFound[i];
 
-                    console.log(citiesFound);
-                    // let city1 = citiesFound[i];
-                    // console.log(city.lat);
-                    // console.log(city.lon);
-                    //https://api.openweathermap.org/data/2.5/forecast?lat=35.6828387&lon=${city.lon}&appid=${apiKey}
+                    // console.log(citiesFound);       //Check the data is received
+
+                    //Parse city lat and lon to retrieve weather conditions
                     return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=` + this.apiKey)
                 }
             })
@@ -51,24 +50,27 @@ weatherSearch = {
             .then((data) => this.displayWeather(data))
     },
 
+    // Function to display weather conditions on webpage
     displayWeather: function (data) {
 
-        const cityname = data.city;
-        const weatherDetails = data.list[0];
-        const weatherForecasts = data.list;
-        console.log(weatherForecasts);
+        const cityname = data.city;             //Variable for the city's name
+        const weatherDetails = data.list[0];    //Variable for weather conditions of the first day
+        const weatherForecasts = data.list;     //Variable for all weather conditions
 
+        // Append the weather condition for the first day to the webpage
         $todaysWeather.append(
-            `<h3 class=city-details>${cityname.name} (${moment(weatherDetails.dt_txt).format("DD/MM/YYYY")})</h3>
-      <img src="https://openweathermap.org/img/wn/${weatherDetails.weather[0].icon}.png" alt="" />
-      <p>Temp: ${weatherDetails.main.temp} °C</p> 
-      <p>Wind: ${weatherDetails.wind.speed} KPH</p> 
-      <p>Humidity: ${weatherDetails.main.humidity}%</p>`
+            `<h3 class=city-details>
+            ${cityname.name} 
+            (${moment(weatherDetails.dt_txt).format("DD/MM/YYYY")})
+            </h3>
+            <img src="https://openweathermap.org/img/wn/${weatherDetails.weather[0].icon}.png" alt="" />
+            <p>Temp: ${weatherDetails.main.temp} °C</p> 
+            <p>Wind: ${weatherDetails.wind.speed} KPH</p> 
+            <p>Humidity: ${weatherDetails.main.humidity}%</p>`
         );
 
         for (let i = 8; i < weatherForecasts.length; i += 7) {
-            // console.log(dateCount);
-            // console.log(data);
+
             console.log(weatherDetails);
             const { dt_txt } = weatherForecasts[i];
             const { icon } = weatherForecasts[i].weather[0];
