@@ -69,23 +69,22 @@ weatherSearch = {
             <p>Humidity: ${weatherDetails.main.humidity}%</p>`
         );
 
+        // Loop through the data to get the 5 day $forecasts from at least 24 hrs later
         for (let i = 8; i < weatherForecasts.length; i += 7) {
 
-            console.log(weatherDetails);
             const { dt_txt } = weatherForecasts[i];
             const { icon } = weatherForecasts[i].weather[0];
             const { temp, humidity } = weatherForecasts[i].main;
             const { speed } = weatherForecasts[i].wind;
 
-            let $forecastList = $("<div>");
-            $forecastList.addClass("card");
+            let $forecastList = $("<div>");     //Add div element to html file
+            $forecastList.addClass("card");     //Add cards to display the weather conditions
 
-            $forecasts.append($forecastList);
+            $forecasts.append($forecastList);   //Append new created div to forcast section
 
-            console.log(cityname);
-
+            //Check if the first day matches and append the divs with cards
             if (weatherDetails[i] === weatherDetails[0]) {
-                // console.log(cityname, cityname.name);
+
                 $forecastList.append(
                     `<h4 class=city-details>${moment(dt_txt).format("DD/MM/YYYY")}</h4>
               <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="" />          
@@ -100,14 +99,14 @@ weatherSearch = {
 
 };
 
-
+// Function to clear search results
 function clearSearch() {
-    $forecasts.empty();
-    $todaysWeather.empty()
+    $todaysWeather.empty()      //Remove the appended elements from the first day section
+    $forecasts.empty();         //Remove the appended elements from the forecast section
+
 }
 
-
-// console.log("---------------\nURL: " + initialUrl + "\n---------------");
+// Click function for displaying the search results and history
 $("button").on("click", function (event) {
 
     event.preventDefault();    //Prevent the page from reloading on form submit.
@@ -117,15 +116,16 @@ $("button").on("click", function (event) {
     let searchWeather = weatherSearch.buidUrl();  // Build the query URL for the ajax request to the weather API
 
 
-    let searchResults = "";
+    let searchResults = "";         //Empty string variable for search results
 
-    let searchTerm = $("#search-input").val().trim();
-    searchResults += searchTerm;
+    let searchTerm = $("#search-input").val().trim();       //Variable for inputted information
+    searchResults += searchTerm;                            //Add user input to the empty string
 
     $("#history").append(
-        `<button type=submit class=search-history>${searchResults}</button>`
+        `<button type=submit class=search-history>${searchResults}</button>`        //Create button for search history
     )
 
+    searchTerm = "";
 
     // //To Check and show previous results in search-form div
     // if (localStorage.getItem("history") != null) {
