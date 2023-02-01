@@ -113,7 +113,7 @@ $("button").on("click", function (event) {
 
     clearSearch()     //Clear the results of the previous search from 
 
-    let searchWeather = weatherSearch.buidUrl();  // Build the query URL for the ajax request to the weather API
+    weatherSearch.buidUrl();  // Build the query URL for the ajax request to the weather API
 
 
     let searchResults = "";         //Empty string variable for search results
@@ -124,8 +124,6 @@ $("button").on("click", function (event) {
     $("#history").append(
         `<button type=submit class=search-history>${searchResults}</button>`        //Create button for search history
     )
-
-    searchTerm = "";
 
     // //To Check and show previous results in search-form div
     // if (localStorage.getItem("history") != null) {
@@ -142,19 +140,32 @@ $("button").on("click", function (event) {
     //   localStorage.setItem("history", historyTmp);
     // }
 
-    $.ajax({
-        url: searchWeather,
-        method: "GET"
-    })
 });
+
+function handle() {
+    value = $(".search-history").text();
+    // alert(value);
+    weatherSearch.buidUrl()
+}
+
+$(function () {
+    $(".search-history").click(handle);
+
+
+
+});
+
 
 $(".search-history").on("click", function (event) {
 
     event.preventDefault;
 
-    let buttonValue = $(".search-history").val().trim();
 
-    console.log(buttonValue);
+
+    $.ajax({
+        url: weatherSearch.buidUrl(),
+        method: "GET"
+    })
     // $("#search-input").append(buttonValue)
 
 });

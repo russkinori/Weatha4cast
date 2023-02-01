@@ -84,8 +84,8 @@ img{
     background: #9e9d9d;
     border: none;
     border-radius: 3px;
-    /* width: 100%; */
-    padding: 5px 135px;
+    width: 100%;
+    /* padding: 5px 135px; */
 
 }
 
