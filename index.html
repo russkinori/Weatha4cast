@@ -13,7 +13,6 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- <link rel="stylesheet" href="styles/reset.css" /> -->
     <title>Weather Dashboard</title>
   </head>
 
@@ -56,14 +55,18 @@
             </div>
           </form>
         </aside>
-
         <div class="col-lg-9 pb-3">
-          <section id="today" class="mt-3" role="region" aria-live="polite">
-            <!-- <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="" /> -->
-          </section>
+          <!-- First day weather condition information -->
+          <section
+            id="today"
+            class="mt-3"
+            role="region"
+            aria-live="polite"
+          ></section>
           <section id="forecast-range" class="row mt-3">
             <h4 id="forecast-range">5-Day Forecast:</h4>
           </section>
+          <!-- 5-day weather forecast -->
           <section
             id="forecast"
             class="row mt-3"

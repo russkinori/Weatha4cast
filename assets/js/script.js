@@ -1,5 +1,7 @@
 // Create a weather dashboard with form inputs.
-// When a user searches for a city they are presented with current and future conditions for that city and that city is added to the search history
+// When a user searches for a city 
+//they are presented with current and future conditions for that city 
+//and that city is added to the search history
 // When a user views the current weather conditions for that city they are presented with:
 // The city name
 // The date
@@ -7,15 +9,18 @@
 // The temperature
 // The humidity
 // The wind speed
-// When a user view future weather conditions for that city they are presented with a 5-day forecast that displays:
+// When a user view future weather conditions for that city
+// they are presented with a 5-day forecast that displays:
 // The date
 // An icon representation of weather conditions
 // The temperature
 // The humidity
-// When a user click on a city in the search history they are again presented with current and future conditions for that city
+// When a user click on a city in the search history
+// they are again presented with current and future conditions for that city
 
-let $todaysWeather = $("#today");
-let $forecasts = $("#forecast");
+
+let $todaysWeather = $("#today");       //Variable for the first day's section
+let $forecasts = $("#forecast");        //Variable for the 5-day forecast's section
 
 weatherSearch = {
     apiKey: "3703dc0a87a12ecb40acb1b87b0e9d16",
